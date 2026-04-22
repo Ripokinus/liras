@@ -1,0 +1,448 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .blog {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-primary);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .masthead {
+    border-bottom: 2px solid var(--color-text-primary);
+    padding: 2.5rem 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .masthead h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    color: var(--color-text-primary);
+  }
+
+  .masthead .domain {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+  }
+
+  .masthead .subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-top: 6px;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 268px;
+  }
+
+  .main-col {
+    border-right: 0.5px solid var(--color-border-tertiary);
+    padding: 2rem;
+  }
+
+  .sidebar { padding: 1.5rem; }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .featured-article {
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .article-kicker {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .article-heading {
+    font-family: 'IM Fell English', serif;
+    font-size: 26px;
+    line-height: 1.28;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--color-text-primary);
+  }
+
+  .article-heading em { font-style: italic; }
+
+  .article-meta {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .meta-sep { color: var(--color-border-secondary); }
+
+  .article-epigraph {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    border-left: 2px solid var(--color-border-tertiary);
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .article-body {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--color-text-primary);
+    columns: 2;
+    column-gap: 2rem;
+  }
+
+  .article-body p { margin-bottom: 0.9rem; }
+
+  .article-body .drop-cap::first-letter {
+    font-family: 'Cinzel', serif;
+    font-size: 58px;
+    float: left;
+    line-height: 0.82;
+    margin-right: 6px;
+    margin-top: 6px;
+    color: var(--color-text-primary);
+  }
+
+  .pullquote {
+    border-left: 2px solid var(--color-text-primary);
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1rem 0;
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    break-inside: avoid;
+  }
+
+  .article-list { display: flex; flex-direction: column; gap: 0; }
+
+  .art-item {
+    border-top: 1px solid var(--color-text-primary);
+    padding: 1.25rem 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .art-item:last-child { border-bottom: none; }
+
+  .art-item h3 {
+    font-family: 'IM Fell English', serif;
+    font-size: 18px;
+    line-height: 1.32;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+  }
+
+  .art-item h3 em { font-style: italic; }
+
+  .art-item .art-meta {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 7px;
+  }
+
+  .art-item p {
+    font-size: 13px;
+    line-height: 1.78;
+    color: var(--color-text-secondary);
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    border-bottom: 0.5px solid var(--color-border-secondary);
+    padding-bottom: 1px;
+    background: none;
+    border-top: none; border-left: none; border-right: none;
+    font-family: 'Libre Baskerville', serif;
+  }
+  .read-more:hover { color: var(--color-text-primary); }
+
+  .sidebar-section {
+    border-top: 1.5px solid var(--color-text-primary);
+    padding-top: 0.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .sidebar-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .aphorism {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    margin-bottom: 3px;
+  }
+
+  .aphorism-author {
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.1rem;
+  }
+
+  .archive-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 0;
+    border-bottom: 0.5px dotted var(--color-border-tertiary);
+    gap: 8px;
+    cursor: pointer;
+  }
+  .archive-item:hover .arc-title { color: var(--color-text-primary); }
+
+  .arc-title {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+    flex: 1;
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+  }
+
+  .arc-cat {
+    font-size: 10px;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 0.5px solid var(--color-border-secondary);
+    padding: 3px 8px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+  }
+  .tag:hover { background: var(--color-background-secondary); }
+
+  .footer {
+    border-top: 2px solid var(--color-text-primary);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 640px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .main-col { border-right: none; }
+    .article-body { columns: 1; }
+  }
+</style>
+
+<div class="blog">
+
+  <header class="masthead">
+    <h1>Filosofía del Derecho</h1>
+    <div class="domain">filosofiadelderecho.com</div>
+    <div class="subtitle">Iuris prudentia — razón, norma y justicia</div>
+  </header>
+
+  <div class="content-grid">
+    <main class="main-col">
+
+      <div class="section-label">Artículo destacado</div>
+
+      <article class="featured-article">
+        <div class="article-kicker">Filosofía del derecho · Historia contemporánea española</div>
+        <h2 class="article-heading">La desmemoria histórica como mito legitimador del régimen <em>setentayochista</em></h2>
+        <div class="article-meta">
+          <span>Prof. Alex Ripoll</span>
+          <span class="meta-sep">·</span>
+          <span>Filosofía del derecho</span>
+        </div>
+        <div class="article-epigraph">
+          Las canciones llevan confusa la historia y clara la pena.<br>
+          <span style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase;">— Machado, 1975, p. 81</span>
+        </div>
+        <div class="article-body">
+          <p class="drop-cap">La construcción de una democracia para todos, basada en la reconciliación y el consenso, necesitaba rehabilitar la dignidad de los vencidos, que no hubiera un solo español, fuere de la ideología que fuere, cuyo cuerpo no hubiera sido hallado y entregado a su familia para que lo despidiera por medio del rito que entendieran debido.</p>
+          <p>Pero las leyes que debían profundizar en el espíritu de la Transición se convirtieron en una guerra contra los muertos. La memoria es un hecho individual, y no puede tenerse memoria de aquello que no se ha vivido. Las que aquí nos ocupan son leyes de relato histórico.</p>
+          <div class="pullquote">"Demonizar el golpe de Estado e idealizar la II República no es un acto de justicia restaurativa, sino la implantación inapelable de un relato oficialista con fines partidistas."</div>
+          <p>Esta tendencia intervencionista sobre el relato histórico da comienzo con la condena del levantamiento del 18 de julio y fue instrumentalizada para sacar adelante la Ley 52/2007 de Memoria Histórica y su sucesora la Ley 20/2022 de Memoria Democrática.</p>
+          <p>La II República, lejos de ser una democracia ejemplar destruida por militares fanáticos, fue uno de los periodos más oscuros de nuestra historia, marcado por una profunda crisis de legitimidad y una lógica insurreccional que atravesaba a los principales actores políticos del momento.</p>
+        </div>
+        <button class="read-more" onclick="sendPrompt('Quiero leer el artículo completo sobre la desmemoria histórica')">Continuar leyendo →</button>
+      </article>
+
+      <div class="section-label">Otros artículos</div>
+
+      <div class="article-list">
+
+        <article class="art-item">
+          <div class="article-kicker">Teoría del Estado · Monarquía y democracia</div>
+          <h3>La monarquía como institución republicana: crítica al formalismo jurídico y al <em>fundamentalismo democrático</em></h3>
+          <div class="art-meta">Prof. Alex Ripoll &nbsp;·&nbsp; Filosofía del derecho</div>
+          <p>Frente al positivismo kelseniano y su pirámide normativa —«un templo funerario» que representa la muerte de la filosofía del derecho—, el autor defiende la democracia como forma de gobierno y no como fundamento del poder, apostando por un fundamentalismo republicano basado en la búsqueda compartida de la verdad.</p>
+          <button class="read-more" onclick="sendPrompt('Quiero leer el artículo sobre la monarquía como institución republicana de Alex Ripoll')">Leer artículo →</button>
+        </article>
+
+        <article class="art-item">
+          <div class="article-kicker">Derecho histórico · Pluralismo nacional</div>
+          <h3>Hubo leyes antes que reyes: el foralismo y los derechos históricos como forma de integración de la pluralidad nacional</h3>
+          <div class="art-meta">Diego Camilo Quijano González y Prof. Alex Ripoll &nbsp;·&nbsp; Historia del derecho</div>
+          <p>A través de la obra de Miguel Herrero de Miñón, los autores reivindicán el foralismo como la mayor aportación de la teoría política hispana y como contrapeso frente a la concentración de poder que, lejos de limitarlo, ha sido el efecto real de la separación de poderes ilustrada.</p>
+          <button class="read-more" onclick="sendPrompt('Quiero leer el artículo sobre foralismo y derechos históricos de Quijano y Ripoll')">Leer artículo →</button>
+        </article>
+
+        <article class="art-item">
+          <div class="article-kicker">Filosofía moral · Persona y derecho</div>
+          <h3>¿Qué es la dignidad?</h3>
+          <div class="art-meta">Prof. Alex Ripoll &nbsp;·&nbsp; Filosofía del derecho</div>
+          <p>La dignidad es la equivalencia entre los seres intencionales basada en la noción universalista de persona. El autor recorre sus fundamentos —de Platón a Kant, de Aristóteles a Millán-Puelles— para sostener que es inherente en origen y mutable en ejercicio, y que su concepto alcanza a los animales no humanos como sujetos de conciencia.</p>
+          <button class="read-more" onclick="sendPrompt('Quiero leer el artículo sobre la dignidad de Alex Ripoll')">Leer artículo →</button>
+        </article>
+
+        <article class="art-item">
+          <div class="article-kicker">Derecho a la vivienda · Economía política</div>
+          <h3>Cómo no teníamos casa, okupamos la plaza: análisis crítico del activismo por la vivienda en Valencia</h3>
+          <div class="art-meta">Prof. Alex Ripoll &nbsp;·&nbsp; Comunicación al Congreso — Máster DDHH, Paz y Desarrollo Sostenible</div>
+          <p>A partir de la acampada en la Plaza del Ayuntamiento de Valencia en octubre de 2024, el autor examina las tensiones entre el derecho a la vivienda y las políticas urbanísticas vigentes, la financiarización del mercado inmobiliario y el invierno demográfico que reconfigurará la demanda de vivienda a largo plazo.</p>
+          <button class="read-more" onclick="sendPrompt('Quiero leer el artículo sobre vivienda y activismo en Valencia de Alex Ripoll')">Leer artículo →</button>
+        </article>
+
+        <article class="art-item">
+          <div class="article-kicker">Derecho internacional · Teoría política</div>
+          <h3>El estado mundial de Ferrajoli frente a los microestados de Hoppe: sobre el tamaño de las comunidades políticas y la centralización jurídica en los tribunales internacionales</h3>
+          <div class="art-meta">Prof. Alex Ripoll &nbsp;·&nbsp; Derecho internacional</div>
+          <p>Desde la Declaración Schuman hasta el Brexit, el autor confronta dos concepciones irreconciliables del orden político: la que apuesta por la centralización supranacional y la que defiende la descentralización en comunidades políticas de tamaño reducido, con la Unión Europea como campo de batalla de esa tensión irresuelta.</p>
+          <button class="read-more" onclick="sendPrompt('Quiero leer el artículo sobre tribunales internacionales y centralización de Alex Ripoll')">Leer artículo →</button>
+        </article>
+
+      </div>
+
+    </main>
+
+    <aside class="sidebar">
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Aforismo</div>
+        <p class="aphorism">"Ubi societas, ibi ius."</p>
+        <p class="aphorism-author">— Máxima romana</p>
+        <p class="aphorism">"La justicia sin fuerza es impotente; la fuerza sin justicia es tiránica."</p>
+        <p class="aphorism-author">— Pascal, <em>Pensées</em></p>
+        <p class="aphorism">"El derecho es la voluntad de que la libertad exista."</p>
+        <p class="aphorism-author">— Hegel, <em>Filosofía del Derecho</em></p>
+        <p class="aphorism">"In necessariis unitas, in dubiis libertas, in omnibus caritas."</p>
+        <p class="aphorism-author">— Marco Antonio de Dominis</p>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Archivo de artículos</div>
+        <div class="archive-item">
+          <span class="arc-title">La desmemoria histórica como mito legitimador</span>
+          <span class="arc-cat">Historia</span>
+        </div>
+        <div class="archive-item">
+          <span class="arc-title">La monarquía como institución republicana</span>
+          <span class="arc-cat">Estado</span>
+        </div>
+        <div class="archive-item">
+          <span class="arc-title">Hubo leyes antes que reyes</span>
+          <span class="arc-cat">Fueros</span>
+        </div>
+        <div class="archive-item">
+          <span class="arc-title">¿Qué es la dignidad?</span>
+          <span class="arc-cat">Moral</span>
+        </div>
+        <div class="archive-item">
+          <span class="arc-title">El activismo por la vivienda en Valencia</span>
+          <span class="arc-cat">DDHH</span>
+        </div>
+        <div class="archive-item">
+          <span class="arc-title">Ferrajoli frente a Hoppe</span>
+          <span class="arc-cat">Intl.</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Áreas temáticas</div>
+        <div class="tags">
+          <span class="tag">Memoria histórica</span>
+          <span class="tag">Foralismo</span>
+          <span class="tag">Dignidad</span>
+          <span class="tag">Vivienda</span>
+          <span class="tag">Positivismo</span>
+          <span class="tag">Democracia</span>
+          <span class="tag">Derecho intl.</span>
+          <span class="tag">II República</span>
+          <span class="tag">Kelsen</span>
+          <span class="tag">UE</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Enviar un artículo</div>
+        <p style="font-size:12px; line-height:1.8; color:var(--color-text-secondary);">
+          Esta publicación acoge artículos académicos originales sobre filosofía jurídica, teoría del derecho y áreas afines.
+        </p>
+        <button class="read-more" style="margin-top:10px;" onclick="sendPrompt('¿Cómo puedo enviar un artículo a filosofiadelderecho.com?')">Normas de envío →</button>
+      </div>
+
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <span>© 2026 filosofiadelderecho.com</span>
+    <span style="font-family:'IM Fell English',serif; font-style:italic;">Iustitia fundamentum regnorum</span>
+    <span>Valencia, España</span>
+  </footer>
+
+</div>
